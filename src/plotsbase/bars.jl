@@ -137,6 +137,6 @@ function boxplot(d, kw_args)
     )
     vis1 = GLVisualize.visualize((GLVisualize.RECTANGLE, box_pos), Style(:default), kwbox)
     vis2 = GLVisualize.visualize((GLVisualize.CIRCLE, outliers), Style(:default), outlier_kw)
-    vis3 = GLVisualize.visualize(t_segments, Style(:linesegment), lines_kw)
+    vis3 = GLVisualize.visualize(t_segments, Style(:linesegments), lines_kw)
     [vis1, vis2, vis3]
 end

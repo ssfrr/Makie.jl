@@ -263,7 +263,7 @@ const atomic_funcs = (
         lines(x, y, z) / lines(x, y) / lines(positions)
     Plots a connected line for each element in xyz/positions
     """,
-    :linesegment => """
+    :linesegments => """
         linesegment(x, y, z) / linesegment(x, y) / linesegment(positions)
     Plots a line for each pair of points in xyz/positions
 
@@ -342,7 +342,7 @@ function plotfunction(scene::Scene)
     # TODO if we actually make new types per atomic primitive, we could do this performant and more elegantly
     scene.name == :scatter && return scatter
     scene.name == :lines && return lines
-    scene.name == :linesegment && return linesegment
+    scene.name == :linesegments && return linesegment
     scene.name == :mesh && return mesh
     scene.name == :poly && return poly
     scene.name == :surface && return surface

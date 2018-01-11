@@ -19,7 +19,7 @@ function LinesegmentBuffer(pos::Point{N, <: AbstractFloat} = Point3f0(0)) where 
     thickness = gpuvec(Float32[])
     range = Signal(0)
     robj = visualize(
-        positions.buffer, :linesegment,
+        positions.buffer, :linesegments,
         color = colors.buffer,
         thickness = thickness.buffer,
         indices = range,
@@ -139,16 +139,16 @@ for arg in ((:x, :y), (:x, :y, :z), (:positions,))
             $(insert_expr...)
             _lines(scene, :lines, attributes)
         end
-        function linesegment(scene::makie, $(arg...), attributes::Dict)
+        function linesegments(scene::makie, $(arg...), attributes::Dict)
             $(insert_expr...)
-            _lines(scene, :linesegment, attributes)
+            _lines(scene, :linesegments, attributes)
         end
     end
 end
 
-function linesegment(scene::makie, pos::AbstractVector{<: Union{Tuple{P, P}, Pair{P, P}}}, attributes::Dict) where P <: Point
+function linesegments(scene::makie, pos::AbstractVector{<: Union{Tuple{P, P}, Pair{P, P}}}, attributes::Dict) where P <: Point
     positions = lift_node(x->reinterpret(P, x), to_node(pos))
-    linesegment(scene, positions, attributes)
+    linesegments(scene, positions, attributes)
 end
 
 

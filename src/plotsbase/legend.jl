@@ -52,7 +52,7 @@ function make_label(p, plot, labeltext, i, attributes)
         pad + floor(t/2) + x[2]w + ((i - 1) * g)
     )
 
-    return if plot.name in (:lines, :linesegment)
+    return if plot.name in (:lines, :linesegments)
         linesegment(
             p, scale.(lpattern, w, padding, gap, tsize),
             color = plot[:color], linestyle = plot[:linestyle], show = false,
